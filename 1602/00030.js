@@ -20,53 +20,55 @@
 
 // { memberId: '324193hDew2', money: 700000, listPurchased: [ 'Baju Zoro', 'Sweater Uniklooh' ], changeMoney: 25000 }
 
-const objBarang = [
-  {
-    barang : "Sepatu Brand Stacattu",
-    harga : 1500000 
-  },
-  {
-    barang : "Baju brand Zoro",
-    harga : 500000
-  },
-  {
-    barang : "Baju brand H&N",
-    harga : 250000 
-  },
-  {
-    barang : "Sweater brand Uniklooh",
-    harga : 175000 
-  },
-  {
-    barang : "Casing Handphone",
-    harga : 50000 
-  }    
-]
 
-function barangTerbeli(money) {
-  let barangDipilih = []
-  let sisaUang = money
-  objBarang.forEach(element => {
-    if(money - element.harga > 0) {
-      barangDipilih.push(`${element.barang}`)
-      sisaUang = sisaUang - element.harga;
-    }    
-  });
 
-  return {listPurchased : barangDipilih, changeMoney : sisaUang};
-}
+// function barangTerbeli(money) {
+  
+
+//   return {listPurchased : barangDipilih, changeMoney : sisaUang};
+// }
 
 function shoppingTime(memberId, money) {
   // you can only write your code here!
   let pembelian;
+  const objBarang = [
+    {
+      barang : "Sepatu Brand Stacattu",
+      harga : 1500000 
+    },
+    {
+      barang : "Baju brand Zoro",
+      harga : 500000
+    },
+    {
+      barang : "Baju brand H&N",
+      harga : 250000 
+    },
+    {
+      barang : "Sweater brand Uniklooh",
+      harga : 175000 
+    },
+    {
+      barang : "Casing Handphone",
+      harga : 50000 
+    }    
+  ]  
+  let barangDipilih = [];
+  let sisaUang = money;  
+
   if (memberId == null || memberId == 0 || memberId == undefined) {
     return "Mohon maaf, toko X hanya berlaku untuk member saja"
   } else if (money < 50000) {
     return "Mohon maaf, uang tidak cukup"
   } else{
-    pembelian = barangTerbeli(money)
-    let listPurchased = pembelian.listPurchased
-    let changeMoney = pembelian.changeMoney
+    objBarang.forEach(element => {
+      if(money - element.harga > 0) {
+        barangDipilih.push(`${element.barang}`)
+        sisaUang = sisaUang - element.harga;
+      }    
+    });
+    let listPurchased = barangDipilih
+    let changeMoney = sisaUang
     
     return {memberId : memberId , money : money, listPurchased, changeMoney}
   }  
