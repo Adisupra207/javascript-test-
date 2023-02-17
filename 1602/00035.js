@@ -10,6 +10,13 @@
 
 function totalDigitRekursif(angka) {
   // you can only write your code here!
+  if(angka.length == 0){
+    return 0;
+  }else{
+    num = angka.toString();
+    number = Number.parseInt(num[0]);  
+    return number + totalDigitRekursif(num.substr(1));
+  }  
 }
 
 // TEST CASES

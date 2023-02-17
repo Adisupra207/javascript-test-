@@ -32,7 +32,46 @@
 //   FOR LOOP index 0 till length of input
 
 function encrypt(input) {
-
+    const charMap = {
+        'a': '!',
+        'b': '@',
+        'c': '#',
+        'd': '$',
+        'e': '%',
+        'f': '^',
+        'g': '&',
+        'h': '*',
+        'i': '(',
+        'j': ')',
+        'k': '-',
+        'l': '+',
+        'm': '1',
+        'n': '2',
+        'o': '3',
+        'p': '4',
+        'q': '5',
+        'r': '6',
+        's': '7',
+        't': '8',
+        'u': '9',
+        'v': '0',
+        'w': '[',
+        'x': ']',
+        'y': '{',
+        'z': '}'
+      };
+    
+      let result = '';
+      for (let i = 0; i < input.length; i++) {
+        const char = input[i].toLowerCase();
+        const replacement = charMap[char];
+        if (replacement !== undefined) {
+          result += replacement;
+        } else {
+          result += input[i];
+        }
+      }
+      return result;
 }
 
 console.log(encrypt('dimitri')) // $(1(86(

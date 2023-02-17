@@ -11,6 +11,16 @@
 
 function kaliTerusRekursif(angka) {
   // you can only write your code here!
+  let tot = 1;
+  if(angka < 10){
+    return angka;
+  }else{
+    num = angka.toString();
+    for(i=0; i<num.length; i++){
+      tot *= Number.parseInt(num[i]);
+    }  
+    return kaliTerusRekursif(tot);
+  }
 }
 
 // TEST CASES
