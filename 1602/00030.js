@@ -50,8 +50,7 @@ function barangTerbeli(money) {
     if(money - element.harga > 0) {
       barangDipilih.push(`${element.barang}`)
       sisaUang = sisaUang - element.harga;
-    }
-    // console.log(`${element.namaBarang} ${element.hargaBarang}`)
+    }    
   });
 
   return {listPurchased : barangDipilih, changeMoney : sisaUang};
