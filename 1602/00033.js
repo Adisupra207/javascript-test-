@@ -17,22 +17,56 @@
 
 function changeVocals (str) {
   //code di sini
+  let newWord = "";
+  for (let i = 0; i < str.length; i++) {
+    let currentChar = str[i];
+    if (currentChar === "a"||currentChar === "i"|| currentChar === "u"||currentChar === "e"||currentChar === "o") {
+      newWord += String.fromCharCode(currentChar.charCodeAt(0) + 1);
+    }else if (currentChar === "A"||currentChar === "I"|| currentChar === "U"||currentChar === "E"||currentChar === "O") {
+      newWord += String.fromCharCode(currentChar.charCodeAt(0) + 1);
+    }else {
+      newWord += currentChar;
+    }
+  }
+  return newWord;
 }
 
 function reverseWord (str) {
   //code di sini
+  let rev = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    rev += str.charAt(i);
+  }
+  return rev;
 }
 
 function setLowerUpperCase (str) {
   //code di sini
+  let fSentence = "";
+  for(i=0; i<str.length; i++){
+    if(/[A-Z]/.test(str[i])){
+      fSentence += str[i].toLowerCase();
+    }else if(/[a-z]/.test(str[i])){
+      fSentence += str[i].toUpperCase();
+    }else{
+      fSentence += str[i];
+    }
+  }
+  return fSentence;
 }
 
 function removeSpaces (str) {
   //code di sini
+  let rSentence ="";
+  return rSentence = str.replace(" ","");
 }
 
 function passwordGenerator (name) {
   //code di sini
+  if(name.length < 5){
+    return 'Minimal karakter yang diinputkan adalah 5 karakter';
+  }
+  return removeSpaces(setLowerUpperCase(reverseWord(changeVocals(name))));
 }
 
 console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'

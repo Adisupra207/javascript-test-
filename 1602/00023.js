@@ -9,7 +9,6 @@ function ubahHuruf(word) {
   let newWord = "";
 
   for (let i = 0; i < word.length; i++) {
-    //newWord += "a";
     let currentChar = word[i];
     if (currentChar === "z") {
       newWord += "a";
